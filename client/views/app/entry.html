@@ -1,0 +1,81 @@
+<div class="container">
+  <form class="form-horizontal">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Daily Report</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="tdate">Date</label>
+        <div class="col-md-6">
+          <input id="tdate" ng-model="transaction.tdate" name="tdate" type="date"  class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="total_amount">Total Amount</label>
+        <div class="col-md-6">
+          <input id="total_amount" ng-model="transaction.total_amount" name="total_amount" type="number" ng-change="calculatePayable()" class="form-control input-md"
+            required="">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="commission_amount">Commission Amount</label>
+        <div class="col-md-6">
+          <input id="commission_amount" ng-model="transaction.commission_amount" name="commission_amount" type="number"
+            class="form-control input-md" ng-change="calculatePayable()">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="payable_amount">Payable Amount</label>
+        <div class="col-md-6">
+          <input id="payable_amount" ng-model="transaction.payable_amount" name="payable_amount" type="number" readonly="" class="form-control input-md"
+            required="">
+
+        </div>
+      </div>
+
+      <!-- number input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="paying_amount">Paying Amount</label>
+        <div class="col-md-6">
+          <input id="paying_amount" ng-model="transaction.paying_amount" name="paying_amount" type="number" placeholder="" class="form-control input-md"
+            ng-change="calculatePayable()">
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="credit">Credit Amount</label>
+        <div class="col-md-6">
+          <input id="credit" ng-model="transaction.credit" name="credit" type="number" placeholder="" class="form-control input-md" required="">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="description">Description</label>
+        <div class="col-md-4">
+          <textarea class="form-control" id="description" ng-model="transaction.description" name="description"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="save"></label>
+        <div class="col-md-4">
+          <button ng-disabled="saveBtn" id="save" name="save" class="btn btn-success" ng-click="save()">Save</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>

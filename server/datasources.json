@@ -1,0 +1,26 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mlab": {
+    "host": "",
+    "port": 0,
+    "url": "",
+    "database": "creativefuel",
+    "password": "",
+    "name": "mlab",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "cloud": {
+    "host": "",
+    "port": 0,
+    "url": "mongodb+srv://creative:Sagar12@cluster0-saypm.mongodb.net/creative?retryWrites=true&w=majority",
+    "database": "creative",
+    "password": "",
+    "name": "cloud",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
