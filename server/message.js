@@ -6,7 +6,8 @@ function sendMessage(mobile, message, cb) {
     method: 'GET',
     url: 'https://api.msg91.com/api/sendhttp.php',
     qs: {
-      authkey: '144918Atzz5Ku8HHn5e739f13P1',
+      // authkey: '144918Atzz5Ku8HHn5e739f13P1',
+      authkey: '144918AWSSfyQRx5e73c148P1',
       mobiles: mobile,
       country: '91',
       message: message,

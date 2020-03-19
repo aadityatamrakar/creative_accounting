@@ -14,7 +14,9 @@
     </thead>
     <tbody>
       <tr ng-repeat="transaction in transactions">
-        <td>{{printDate(transaction.tdate)}}</td>
+        <td>{{printDate(transaction.tdate)}}
+          <button class="btn btn-sm btn-danger" ng-click="remove($index)">X</button>
+        </td>
         <td>{{transaction.total_amount}}</td>
         <td>{{transaction.commission_amount}}</td>
         <td>{{transaction.payable_amount}}</td>

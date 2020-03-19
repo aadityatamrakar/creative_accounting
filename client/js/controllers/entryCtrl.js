@@ -7,7 +7,6 @@ angular
 
     $scope.report = {};
     Transaction.dashboard().$promise.then(function (report) {
-      console.log(report);
       $scope.report = report.filter(c => c.client.id == $scope.clientId)[0];
       $scope.report.hero = report.sort(function (a, b) {
         return b.payable - a.payable
@@ -15,6 +14,11 @@ angular
     });
 
     $scope.total = {};
+
+    $scope.remove = function (idx) {
+      Transaction.deleteById({id: $scope.transactions[idx].id});
+      $scope.getData();
+    }
 
     $scope.getData = function () {
       Transaction.find({
