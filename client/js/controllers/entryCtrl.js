@@ -13,6 +13,40 @@ angular
       })[0].client.name;
     });
 
+    $scope.downloadCsv = function () {
+      let headers = [
+        'Date',
+        'Total Amount',
+        'Commission',
+        'Payable',
+        'Paid',
+        'Credit',
+        'Description',
+      ];
+      let itemsFormatted = $scope.transactions.map(transaction => {
+        return [
+          printDate(transaction.tdate),
+          transaction.total_amount,
+          transaction.commission_amount,
+          transaction.payable_amount,
+          transaction.paying_amount,
+          transaction.credit,
+          transaction.description,
+        ]
+      });
+      itemsFormatted.push([
+        'Total:',
+        $scope.total.total_amount,
+        $scope.total.commission_amount,
+        $scope.total.payable_amount,
+        $scope.total.paying_amount,
+        $scope.total.credit,
+        ''
+      ]);
+      let fileTitle = 'summary';
+      exportCSVFile(headers, itemsFormatted, fileTitle);
+    }
+
     $scope.total = {};
 
     $scope.remove = function (idx) {
@@ -182,7 +216,9 @@ angular
       let options = {
         title: 'Performance',
         slices: {
-          0: { color: 'black' }
+          0: {
+            color: 'black'
+          }
           // 0: { color: 'yellow' },
         }
         // pieSliceText: 'label'

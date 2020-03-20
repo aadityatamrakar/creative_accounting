@@ -1,5 +1,6 @@
 <div class="container">
   <h3>Performance <small class="text-success">Target Achieved: {{((report.payable/report.client.target) * 100).toFixed(1)}} % ({{report.payable}}/{{report.client.target}})</small></h3>
+  <button ng-click="downloadCsv()" class="btn btn-sm btn-primary">Download</button>
   <table class="table table-stripped table-responsive">
     <thead>
       <tr>
