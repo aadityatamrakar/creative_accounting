@@ -25,7 +25,7 @@
     <a class="nav-link" href="#/app/entry">
       <i class="fas fa-fw fa-edit"></i>
       <span>Daily Report</span></a>
-  </li>  
+  </li>
   
   <li class="nav-item" ng-show="clientRole == 'Admin'">
     <a class="nav-link" href="#/app/transactions">
@@ -44,6 +44,18 @@
       <i class="fas fa-fw fa-edit"></i>
       <span>My Performance</span></a>
   </li>
+  
+  <li class="nav-item"> 
+    <a class="nav-link" href="#/app/pages">
+      <i class="fas fa-fw fa-edit"></i>
+      <span>Pages</span></a>    
+  </li>
+
+  <li class="nav-item"> 
+    <a class="nav-link" href="#/app/slots">
+      <i class="fas fa-fw fa-edit"></i>
+      <span>Slots</span></a>    
+  </li>
 
   <li class="nav-item" ng-show="clientRole == 'Admin'">
     <a class="nav-link" href="#/app/omniform/new/new">
@@ -51,41 +63,6 @@
       <span>Report</span></a>
   </li>
 
-  
-  
-  <!-- Divider -->
-  <!-- <hr class="sidebar-divider"> -->
-
-  <!-- Heading -->
-  <!-- <div class="sidebar-heading">
-    Addons
-  </div> -->
-
-  <!-- Nav Item - Pages Collapse Menu -->
-  <!-- <li class="nav-item">
-    <a class="nav-link collapsed" href="javascript:;" data-toggle="collapse" data-target="#collapsePages"
-      aria-expanded="true" aria-controls="collapsePages">
-      <i class="fas fa-fw fa-folder"></i>
-      <span>Pages</span>
-    </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Login Screens:</h6>
-        <a class="collapse-item" href="login.html">Login</a>
-        <a class="collapse-item" href="register.html">Register</a>
-        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-        <div class="collapse-divider"></div>
-        <h6 class="collapse-header">Other Pages:</h6>
-        <a class="collapse-item" href="404.html">404 Page</a>
-        <a class="collapse-item" href="blank.html">Blank Page</a>
-      </div>
-    </div>
-  </li> -->
-
-  <!-- Divider -->
-  <!-- <hr class="sidebar-divider d-none d-md-block"> -->
-
-  <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>
   </div>
@@ -107,20 +84,6 @@
         <i class="fa fa-bars"></i>
       </button>
 
-      <!-- Topbar Search -->
-      <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-            aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search fa-sm"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <!-- Topbar Navbar -->
       <ul class="navbar-nav ml-auto">
 
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -153,15 +116,10 @@
             aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small"
               style="text-transform: capitalize;">{{ username }}</span>
-            <img class="img-profile rounded-circle" src="https://source.unsplash.com/{{username}}/60x60">
+            <img class="img-profile rounded-circle" src="https://via.placeholder.com/60/000000/FFFFFF/?text={{username[0].toUpperCase()}}">
           </a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <!-- <a class="dropdown-item" href="javascript:;">
-              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-              Settings
-            </a> -->
-            <!-- <div class="dropdown-divider"></div> -->
             <a class="dropdown-item" href="javascript:;" ng-click="logout()">
               <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Logout
@@ -185,7 +143,7 @@
   <footer class="sticky-footer bg-white">
     <div class="container my-auto">
       <div class="copyright text-center my-auto">
-        <span>Copyright &copy; SIC</span>
+        <span>Copyright &copy; Creative Fuel</span>
       </div>
     </div>
   </footer>

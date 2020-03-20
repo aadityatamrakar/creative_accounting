@@ -63,6 +63,11 @@ angular
           templateUrl: "views/app/entry.html",
           controller: "EntryController"
         })
+        .state("app.pages", {
+          url: "/pages",
+          templateUrl: "views/app/pages.html",
+          controller: "PagesController"
+        })
         // Admin
         .state("app.dashboard", {
           url: "/dashboard",
