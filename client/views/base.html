@@ -1,6 +1,5 @@
 <!-- Sidebar -->
-<ul
-  ng-class="{'bg-gradient-primary': clientRole == 'Co-admin', 'bg-gradient-success': clientRole == 'Admin'}"
+<ul ng-class="{'bg-gradient-primary': clientRole == 'Co-admin', 'bg-gradient-success': clientRole == 'Admin'}"
   class="navbar-nav bg-gray-900 sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
@@ -21,40 +20,40 @@
       <span>Dashboard</span></a>
   </li>
 
-  <li class="nav-item"> 
+  <li class="nav-item">
     <a class="nav-link" href="#/app/entry">
       <i class="fas fa-fw fa-edit"></i>
       <span>Daily Report</span></a>
   </li>
-  
+
   <li class="nav-item" ng-show="clientRole == 'Admin'">
     <a class="nav-link" href="#/app/transactions">
       <i class="fas fa-fw fa-edit"></i>
       <span>Transactions</span></a>
-  </li>  
+  </li>
 
   <li class="nav-item" ng-show="clientRole == 'Admin'">
     <a class="nav-link" href="#/app/clients">
       <i class="fas fa-fw fa-edit"></i>
       <span>User Mgt.</span></a>
   </li>
-  
+
   <li class="nav-item">
     <a class="nav-link" href="#/app/display/{{ clientId }}">
       <i class="fas fa-fw fa-edit"></i>
       <span>My Performance</span></a>
   </li>
-  
-  <li class="nav-item"> 
+
+  <li class="nav-item" ng-show="clientRole == 'Admin'">
     <a class="nav-link" href="#/app/pages">
       <i class="fas fa-fw fa-edit"></i>
-      <span>Pages</span></a>    
+      <span>Pages</span></a>
   </li>
 
-  <li class="nav-item"> 
+  <li class="nav-item" ng-show="clientRole == 'Admin'">
     <a class="nav-link" href="#/app/slots">
       <i class="fas fa-fw fa-edit"></i>
-      <span>Slots</span></a>    
+      <span>Slots</span></a>
   </li>
 
   <li class="nav-item" ng-show="clientRole == 'Admin'">
@@ -116,7 +115,8 @@
             aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small"
               style="text-transform: capitalize;">{{ username }}</span>
-            <img class="img-profile rounded-circle" src="https://via.placeholder.com/60/000000/FFFFFF/?text={{username[0].toUpperCase()}}">
+            <img class="img-profile rounded-circle"
+              src="https://via.placeholder.com/60/000000/FFFFFF/?text={{username[0].toUpperCase()}}">
           </a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
