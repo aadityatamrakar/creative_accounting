@@ -1,102 +1,119 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 </div>
 
 <div class="row">
-    <div class="col-lg-12">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12 mb-2" ng-click="showCalls()">
         <div class="card shadow mb-4">
-            <div class="card-body text-gray-700">{{ qoutes[selectQoute] }}</div>
+          <div class="card-body text-gray-700">{{ qoutes[selectQoute] }}</div>
         </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xl-3 col-md-6 mb-4" ng-click="showCalls()">
+      </div>
+      <div class="col-md-6 mb-4" ng-click="showCalls()">
         <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Target</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.client.target}}</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
-                    </div>
-                </div>
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Target</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.client.target}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="col-xl-3 col-md-6 mb-4" ng-click="showCalls()">
+      </div>
+      <div class="col-md-6 mb-4" ng-click="showCalls()">
         <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warborder-left-warning text-uppercase mb-1">Achieved</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.payable}}</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
-                    </div>
-                </div>
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warborder-left-warning text-uppercase mb-1">Achieved</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.payable}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="col-xl-3 col-md-6 mb-4" ng-click="showCalls()">
-        <div class="card border-left-danger shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Hero</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.hero}}</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      </div>
 
-    <div class="col-xl-3 col-md-6 mb-4" ng-click="showCalls()">
+      <div class=" col-md-6 mb-4" ng-click="showCalls()">
         <div class="card border-left-danger shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warborder-left-danger text-uppercase mb-1">Balance</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.balance}}</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
-                    </div>
-                </div>
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Hero</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.hero}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="row">
-    <div class="col-lg-6">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Anouncements</h6>
+      <div class=" col-md-6 mb-4" ng-click="showCalls()">
+        <div class="card border-left-danger shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warborder-left-danger text-uppercase mb-1">Balance</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.balance}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
+              </div>
             </div>
-            <div class="card-body">
-                {{announcement.text}}
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="col-lg-6" ng-show="clientRole == 'Brand Operator'">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Synchronization</h6>
-            </div>
-            <div class="card-body">
-                Kindly check and match all the calls from brand portal and in SIC Web. <br>
-                There should be no discrepancy in the calls. <br>
-                Check and verify, then click the below button for audit. <br>
-                Last Matched: {{ last_sync }} <br>
-                <button ng-click="sync()" class="btn btn-md btn-success">Confirm Match</button>
-            </div>
+  </div>
+
+
+  <div class="col-md-6">
+    <div class="card shadow mb-4">
+      <div class="card-header bg-success py-3">
+        <h6 class="m-0 font-weight-bold" style="color:white">Ranking</h6>
+      </div>
+      <div class="card-body">
+        <h4 ng-repeat-start="row in allReport" class="small font-weight-bold">{{$index+1}}. {{row.client.name}} <span
+            class="float-right">Achievement {{((row.total/row.client.target)* 100).toFixed(1)}} %</span></h4>
+        <div class="progress" ng-repeat-end>
+          <div class="progress-bar bg-success" role="progressbar"
+            ng-style="{'width': {{(row.total/row.client.target)* 100}} + '%'}"></div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
+<!-- <div class="row">
+  <div class="col-lg-6">
+    <div class="card shadow mb-4">
+      <div class="card-header bg-success py-3">
+        <h6 class="m-0 font-weight-bold" style="color:white">Ranking</h6>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th class="text-right">Performance %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="row in allReport">
+            <td>{{$index + 1}}</td>
+            <td>{{row.client.name}}</td>
+            <td class="text-right">{{((row.payable / row.client.target) * 100).toFixed(1)}} %</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->

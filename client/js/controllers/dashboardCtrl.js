@@ -31,10 +31,10 @@ angular
 
 
     Client.getCurrent().$promise.then(function (user) {
-
+      $scope.allReport = {};
       $scope.report = {};
       Transaction.dashboard().$promise.then(function (report) {
-        console.log(report);
+        $scope.allReport = report.sort((a, b) => (b.total / b.client.target) - (a.total / a.client.target));
         $scope.report = report.filter(c => c.client.id == $scope.clientId)[0];
         $scope.report.hero = report.sort(function (a, b) {
           return b.payable - a.payable
