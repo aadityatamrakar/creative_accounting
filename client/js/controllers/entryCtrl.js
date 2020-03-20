@@ -25,7 +25,7 @@ angular
       ];
       let itemsFormatted = $scope.transactions.map(transaction => {
         return [
-          printDate(transaction.tdate),
+          $scope.printDate(transaction.tdate),
           transaction.total_amount,
           transaction.commission_amount,
           transaction.payable_amount,
