@@ -111,13 +111,14 @@ angular
     // }
 
     $scope.downloadCsv = function () {
-      let headers = ['Name', 'Total Amount', 'Commission', 'Payable', 'Paid', 'Balance'];
+      let headers = ['Name', 'Total Amount', 'Commission', 'Payable','Target', 'Paid', 'Balance'];
       let itemsFormatted = Object.values($scope.report).map(transaction => {
         return [
           transaction.client.name,
           transaction.total_amount,
           transaction.commission_amount,
           transaction.payable_amount,
+          transaction.client.target,
           transaction.paying_amount,
           (transaction.paying_amount - transaction.payable_amount)
         ]
@@ -127,6 +128,7 @@ angular
         $scope.total.total_amount,
         $scope.total.commission_amount,
         $scope.total.payable_amount,
+        $scope.total.target,
         $scope.total.paid_amount,
         $scope.total.balance
       ]);
@@ -249,6 +251,7 @@ angular
           acc.total_amount += item.total_amount;
           acc.commission_amount += item.commission_amount;
           acc.payable_amount += item.payable_amount;
+          acc.target += item.client.target;
           acc.paid_amount += item.paying_amount;
           acc.balance += item.paying_amount - item.payable_amount;
           return acc;
@@ -256,6 +259,7 @@ angular
           total_amount: 0,
           commission_amount: 0,
           payable_amount: 0,
+          target: 0,
           paid_amount: 0,
           balance: 0
         })
