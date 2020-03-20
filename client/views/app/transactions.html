@@ -9,7 +9,7 @@
             <label class="col-md-4 control-label" for="from_date">Date Range</label>
             <div class="col-md-8">
               <input id="from_date" ng-model="query.from_date" name="from_date" type="date" placeholder=""
-              class="form-control input-md">
+                class="form-control input-md">
             </div>
             <label class="col-md-4 control-label" for="to_date">Date To</label>
             <div class="col-md-8">
@@ -17,7 +17,7 @@
                 class="form-control input-md">
             </div>
           </div>
-    
+
           <div class="form-group">
             <label class="col-md-4 control-label" for=""></label>
             <div class="col-md-6">
@@ -28,14 +28,13 @@
       </form>
     </div>
     <div class="col-md-8">
-
+      <button ng-click="downloadImg('a')" class="btn btn-sm btn-primary">Download</button>
       <div id="chart_div" style="height: 200px;"></div>
     </div>
   </div>
-  
 
-
-  <table class="table table-bordered table-hover">
+  <button ng-click="downloadCsv()" class="btn btn-sm btn-primary">Download CSV</button>
+  <table id="transTbl" class="table table-bordered table-hover">
     <thead>
       <tr>
         <th>User Name</th>
@@ -68,3 +67,8 @@
     </tfoot>
   </table>
 </div>
+
+<button ng-click="downloadImg('b')" class="btn btn-sm btn-primary">Download</button>
+<div id="chart_div2" style="height: 600px;"></div>
+<button ng-click="downloadImg('c')" class="btn btn-sm btn-primary">Download</button>
+<div id="piechart" style="height: 600px;"></div>
