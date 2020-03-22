@@ -96,7 +96,7 @@
         <h6 class="m-0 font-weight-bold" style="color:white">Ranking</h6>
       </div>
       <div class="card-body">
-        <h4 ng-repeat-start="row in allReport" class="small font-weight-bold">{{$index+1}}. {{row.client.name}} <span
+        <h4 ng-repeat-start="row in allReport" ng-hide="row.client.role == 'Admin'" class="small font-weight-bold">{{$index+1}}. {{row.client.name}} <span
             class="float-right">Achievement {{((row.total/row.client.target)* 100).toFixed(1)}} %</span></h4>
         <div class="progress" ng-repeat-end>
           <div class="progress-bar bg-success" role="progressbar"
