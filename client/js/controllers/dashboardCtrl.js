@@ -45,7 +45,7 @@ angular
       $scope.total = {};
 
       Transaction.dashboard().$promise.then(function (report) {
-        $scope.allReport = report.sort((a, b) => (b.total / b.client.target) - (a.total / a.client.target));
+        $scope.allReport = report.filter(c => c.client.role !='Admin').sort((a, b) => (b.total / b.client.target) - (a.total / a.client.target));
         $scope.total = $scope.allReport.reduce(function (acc, item) {
           acc.payable += item.payable;
           acc.target += item.client.target;
