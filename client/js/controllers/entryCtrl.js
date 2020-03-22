@@ -69,6 +69,7 @@ angular
           acc.total_amount += item.total_amount;
           acc.commission_amount += item.commission_amount;
           acc.payable_amount += item.payable_amount;
+          acc.expenses_amount += item.expenses_amount;
           acc.paying_amount += item.paying_amount;
           acc.credit += item.credit;
           return acc;
@@ -76,6 +77,7 @@ angular
           total_amount: 0,
           commission_amount: 0,
           payable_amount: 0,
+          expenses_amount: 0,
           paying_amount: 0,
           credit: 0
         })
@@ -118,6 +120,7 @@ angular
           transaction.total_amount,
           transaction.commission_amount,
           transaction.payable_amount,
+          transaction.expenses_amount,
           transaction.client.target,
           transaction.paying_amount,
           (transaction.paying_amount - transaction.payable_amount)
@@ -128,6 +131,7 @@ angular
         $scope.total.total_amount,
         $scope.total.commission_amount,
         $scope.total.payable_amount,
+        $scope.total.expenses_amount,
         $scope.total.target,
         $scope.total.paid_amount,
         $scope.total.balance

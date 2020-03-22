@@ -41,6 +41,7 @@
         <th>Total Income</th>
         <th>Total Commission</th>
         <th>Total Payable</th>
+        <th>Total Expenses</th>
         <th>Target</th>
         <th>Total Paid</th>
         <th>Current Balance</th>
@@ -52,6 +53,7 @@
         <td>{{transaction.total_amount}}</td>
         <td>{{transaction.commission_amount}}</td>
         <td>{{transaction.payable_amount}}</td>
+        <td>{{transaction.expenses_amount}}</td>
         <td>{{transaction.client.target}}</td>
         <td>{{transaction.paying_amount}}</td>
         <td>{{(transaction.paying_amount - transaction.payable_amount)}}</td>
@@ -63,6 +65,7 @@
         <th>{{total.total_amount}}</th>
         <th>{{total.commission_amount}}</th>
         <th>{{total.payable_amount}}</th>
+        <th>{{total.expenses_amount}}</th>
         <th>{{total.target}}</th>
         <th>{{total.paid_amount}}</th>
         <th>{{(total.balance)}}</th>
