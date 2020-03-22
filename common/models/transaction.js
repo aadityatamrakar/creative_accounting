@@ -19,7 +19,7 @@ module.exports = function (Transaction) {
       Transaction.find({
         where: {
           tdate: {
-            between: [moment(from_date).toDate(),moment(to_date).toDate()]
+            between: [moment(from_date).toDate(), moment(to_date).toDate()]
           }
         }
       }).then(function (transactions) {
@@ -27,12 +27,12 @@ module.exports = function (Transaction) {
         let report = transactions.reduce(function (acc, transaction) {
           if (typeof acc[transaction.clientId] == 'undefined') {
             acc[transaction.clientId] = {
-              total_amount: transaction.total_amount,
-              commission_amount: transaction.commission_amount,
-              payable_amount: transaction.payable_amount,
-              expenses_amount: transaction.expenses_amount,
-              credit: transaction.credit,
-              paying_amount: transaction.paying_amount,
+              total_amount: transaction.total_amount ? transaction.total_amount : 0,
+              commission_amount: transaction.commission_amount ? transaction.commission_amount : 0,
+              payable_amount: transaction.payable_amount ? transaction.payable_amount : 0,
+              expenses_amount: transaction.expenses_amount ? transaction.expenses_amount : 0,
+              credit: transaction.credit ? transaction.credit : 0,
+              paying_amount: transaction.paying_amount ? transaction.paying_amount : 0,
               client: clients[transaction.clientId],
             }
           } else {
