@@ -283,6 +283,7 @@ angular
       total_amount: 0,
       commission_amount: 0,
       payable_amount: 0,
+      expenses_amount: 0,
       paying_amount: 0,
       credit: 0,
       description: '',
