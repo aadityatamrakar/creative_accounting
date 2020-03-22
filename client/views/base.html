@@ -50,17 +50,29 @@
       <span>Pages</span></a>
   </li>
 
-  <li class="nav-item" ng-show="clientRole == 'Admin'">
+  <li class="nav-item">
     <a class="nav-link" href="#/app/slots">
       <i class="fas fa-fw fa-edit"></i>
       <span>Slots</span></a>
   </li>
+  
+  <li class="nav-item">
+    <a class="nav-link" href="#/app/announcement">
+      <i class="fas fa-fw fa-edit"></i>
+      <span>Complain Box</span></a>
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link" ng-click="downloadBooking()">
+      <i class="fas fa-fw fa-edit"></i>
+      <span>Download All Bookings</span></a>
+  </li>
 
-  <li class="nav-item" ng-show="clientRole == 'Admin'">
+  <!-- <li class="nav-item" ng-show="clientRole == 'Admin'">
     <a class="nav-link" href="#/app/omniform/new/new">
       <i class="fas fa-fw fa-edit"></i>
       <span>Report</span></a>
-  </li>
+  </li> -->
 
   <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>

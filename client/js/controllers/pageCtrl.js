@@ -64,6 +64,16 @@ angular
     $scope.getData = function () {
       Page.find({}).$promise.then(function (pages) {
         $scope.pages = pages;
+        $scope.total = $scope.pages.reduce(function (acc, elm) {
+          acc.story += elm.story;
+          acc.post += elm.post;
+          acc.both += elm.both;
+          return acc;
+        }, {
+          story: 0,
+          post: 0,
+          both: 0
+        });
       })
     }
     $scope.getData();
@@ -78,5 +88,20 @@ angular
           id: $scope.pages[idx].id
         }).$promise.then($scope.getData);
       }
+    }
+
+    $scope.copyMsg = [];
+    $scope.rateMsg = function () {
+      // console.log($scope.copyMsg);
+      $('[name="chk[]"]')
+      let msg = $scope.pages.map(c => `@${c.username} ${c.followers}\n${c.link}\nStory: ${c.story} post: ${c.post} both: ${c.both}\n`).join('\n');
+      copyTextToClipboard(msg);
+      ngNotify.set('Copied');
+      // alert('Copied');
+    }
+    $scope.copyText = function(idx) {
+      let page = $scope.pages[idx];
+      let msg = `@${page.username} ${page.followers}\n${page.link}\nStory: ${page.story} Post: ${page.post} Both: ${page.both}`;
+      copyTextToClipboard(msg);
     }
   })

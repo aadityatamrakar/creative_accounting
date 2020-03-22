@@ -1,0 +1,19 @@
+{
+  "name": "slot",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

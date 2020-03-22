@@ -2,8 +2,13 @@ angular
   .module('app')
 
 
-  .controller('ClientController', function ($scope, ngNotify, Client, Transaction) {
-    $scope.user = {}
+  .controller('ClientController', function ($scope, ngNotify, Client, Transaction, Page) {
+    $scope.user = {};
+    $scope.pages = [];
+    Page.find({}).$promise.then(function (pages) {
+      $scope.pages = pages;
+    });
+
 
     $scope.message = function (idx) {
       if (String($scope.users[idx].mobile).length == 10) {

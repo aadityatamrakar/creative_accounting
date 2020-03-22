@@ -16,7 +16,8 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Target</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.client.target}}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                  {{clientRole == 'Admin' ? total.target :report.client.target}}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
@@ -31,7 +32,8 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-warborder-left-warning text-uppercase mb-1">Achieved</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.payable}}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                  {{clientRole == 'Admin' ? total.payable : report.payable}}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
@@ -63,12 +65,24 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-warborder-left-danger text-uppercase mb-1">Balance</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{report.balance}}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                  {{clientRole == 'Admin' ? total.balance:report.balance}}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-rupee-sign  fa-2x text-gray-300"></i>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold">Anonymous Message</h6>
+          </div>
+          <div class="card-body">
+            {{announcement.text}}
           </div>
         </div>
       </div>

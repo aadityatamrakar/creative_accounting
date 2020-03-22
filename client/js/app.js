@@ -63,10 +63,20 @@ angular
           templateUrl: "views/app/entry.html",
           controller: "EntryController"
         })
+        .state("app.announcement", {
+          url: "/announcement",
+          templateUrl: "views/app/announcement.html",
+          controller: "AnnouncementController"
+        })
         .state("app.pages", {
           url: "/pages",
           templateUrl: "views/app/pages.html",
           controller: "PagesController"
+        })
+        .state("app.slots", {
+          url: "/slots",
+          templateUrl: "views/app/slots.html",
+          controller: "SlotsController"
         })
         // Admin
         .state("app.dashboard", {
@@ -78,13 +88,8 @@ angular
           url: "/clients",
           templateUrl: "views/app/client.html",
           controller: "ClientController"
-        })
-        .state("app.announcement", {
-          url: "/announcement",
-          templateUrl: "views/entry/announcement.html",
-          controller: "AnnouncementController"
         });
-
+        
       $urlRouterProvider.otherwise("/login");
     }
   ]);

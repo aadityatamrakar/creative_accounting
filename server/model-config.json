@@ -50,5 +50,13 @@
   "page": {
     "dataSource": "cloud",
     "public": true
+  },
+  "slot": {
+    "dataSource": "cloud",
+    "public": true
+  },
+  "counters": {
+    "dataSource": "cloud",
+    "public": true
   }
 }

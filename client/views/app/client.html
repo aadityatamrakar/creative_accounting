@@ -30,7 +30,7 @@
           <td>{{ user.target }}</td>
           <td>{{ user.role }}</td>
           <td><button class="btn btn-primary" ng-click="reset($index)">Reset</button></td>
-          <td>{{ user.pages }}</td>
+          <td>{{ user.pages.join(', ') }}</td>
           <td>
             <button class="btn btn-md btn-warning" ng-click="message($index)">Message</button>
             <button class="btn btn-md btn-danger" ng-click="edit($index)">Edit</button>
@@ -65,7 +65,7 @@
               <input type="text" class="form-control" ng-model="user.username" id="username" placeholder="Username">
             </div>
           </div>
-          
+
           <div class="form-group row">
             <label for="Mobile" class="col-sm-4 col-form-label">Mobile</label>
             <div class="col-sm-4">
@@ -78,7 +78,7 @@
               <input type="text" class="form-control" ng-model="user.password" id="password" placeholder="Password">
             </div>
           </div>
-          
+
           <div class="form-group row">
             <label for="target" class="col-sm-4 col-form-label">Target</label>
             <div class="col-sm-4">
@@ -86,9 +86,11 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="pages" class="col-sm-4 col-form-label">Pages</label>
+            <label for="name" class="col-sm-4 col-form-label">Page Name</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" ng-model="user.pages" id="pages" placeholder="pages">
+              <select ng-model="user.pages" multiple name="pagesIds" id="pagesIds" class="form-control">
+                <option value="{{page.name}}" ng-repeat="page in pages">{{page.name}}</option>
+              </select>
             </div>
           </div>
           <div class="form-group row">

@@ -7,6 +7,7 @@
 
 <div class="row">
   <div class="col-lg-12 border-left-primary">
+    <button class="btn btn-sm btn-primary" ng-click="rateMsg()">Rate Msg</button>
     <table class="table table-striped table-responsive">
       <thead>
         <tr>
@@ -15,22 +16,46 @@
           <th>Username</th>
           <th>Link</th>
           <th>Followers</th>
+          <th>Commission</th>
+          <th>Story</th>
+          <th>Post</th>
+          <th>Both</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="page in pages">
-          <td>{{ $index + 1 }}</td>
-          <td>{{ page.name }}</td>
+          <td>
+            {{ $index + 1 }}
+          </td>
+          <td><button class="btn btn-sm btn-primary" ng-click="copyText($index)"><i class="fa fa-copy"></i> {{ page.name }}</button></td>
           <td>{{ page.username }}</td>
-          <td>{{ page.link }}</td>
-          <td>{{ user.followers }}</td>
+          <td><a href="{{page.link}}" target="_blank">{{ page.link }}</a></td>
+          <td>{{ page.followers }}</td>
+          <td>{{ page.commission }}</td>
+          <td>{{ page.story }}</td>
+          <td>{{ page.post }}</td>
+          <td>{{ page.both }}</td>
           <td>
             <button class="btn btn-md btn-warning" ng-click="edit($index)">Edit</button>
             <button class="btn btn-md btn-danger" ng-click="delete($index)">Del</button>
           </td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{total.story}}</td>
+          <td>{{total.post}}</td>
+          <td>{{total.both}}</td>
+          <td></td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>
@@ -71,6 +96,30 @@
             <label for="followers" class="col-sm-4 col-form-label">Followers</label>
             <div class="col-sm-4">
               <input type="text" class="form-control" ng-model="page.followers" id="followers" placeholder="followers">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="commission" class="col-sm-4 col-form-label">Commission</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" ng-model="page.commission" id="commission" placeholder="commission">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="story" class="col-sm-4 col-form-label">Story Rate</label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" ng-model="page.story" id="story" placeholder="story">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="post" class="col-sm-4 col-form-label">Post Rate</label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" ng-model="page.post" id="post" placeholder="post">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="both" class="col-sm-4 col-form-label">Both Rate</label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" ng-model="page.both" id="both" placeholder="both">
             </div>
           </div>
         </form>

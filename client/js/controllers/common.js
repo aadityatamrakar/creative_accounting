@@ -68,7 +68,7 @@ angular
             }
           }
         );
-      }, function(err) {
+      }, function (err) {
         if (err.data && err.data.error && err.data.error.message) {
           ngNotify.set(err.data.error.message, {
             type: "danger",
@@ -79,7 +79,7 @@ angular
     }
   })
 
-  .controller('appController', function ($scope, $rootScope, $state, Client, ngNotify) {
+  .controller('appController', function ($scope, $rootScope, $state, Client, Transaction, ngNotify) {
     $scope.isActive = function (viewLocation) {
       return viewLocation === $state.current.name
     };
@@ -97,7 +97,7 @@ angular
       username: "user"
     };
     $scope.isAdmin = false;
-    Client.getCurrent().$promise.then(function(user) {
+    Client.getCurrent().$promise.then(function (user) {
       $scope.isAdmin = user.admin ? user.admin : false;
       $rootScope.isAdmin = user.admin ? user.admin : false;
       $rootScope.username = user.username;
@@ -111,13 +111,73 @@ angular
     })
 
     $scope.logout = function () {
-      Client.logout().$promise.then(function(resp) {
+      Client.logout().$promise.then(function (resp) {
         ngNotify.set('Logged out.', {
           position: "bottom",
           type: "grimace"
         })
         $state.go('login');
       })
+    }
+
+    $scope.downloadBooking = function () {
+      Transaction
+        .find({filter: {include: ['client']}})
+        .$promise
+        .then(function (resp) {
+          let total = resp.reduce(function (acc, item) {
+            acc.total_amount += item.total_amount;
+            acc.commission_amount += item.commission_amount;
+            acc.payable_amount += item.payable_amount;
+            acc.paying_amount += item.paying_amount;
+            acc.credit += item.credit;
+            return acc;
+          }, {
+            total_amount: 0,
+            commission_amount: 0,
+            payable_amount: 0,
+            paying_amount: 0,
+            credit: 0
+          })
+
+          let headers = [
+            'Date',
+            'Total Amount',
+            'Commission',
+            'Payable',
+            'Paid',
+            'Credit',
+            'Description',
+            'User',
+            'Mobile'
+          ];
+          let itemsFormatted = resp.map(transaction => {
+            return [
+              $scope.printDate(transaction.tdate),
+              transaction.total_amount,
+              transaction.commission_amount,
+              transaction.payable_amount,
+              transaction.paying_amount,
+              transaction.credit,
+              transaction.description.replace(/(\n)|(\r)|(\')|(\")|(\;)|(\:)|(\,)/g, ''),
+              transaction.client.name,
+              transaction.client.mobile,
+            ]
+          });
+          itemsFormatted.push([
+            'Total:',
+            total.total_amount,
+            total.commission_amount,
+            total.payable_amount,
+            total.paying_amount,
+            total.credit,
+            '',
+            '',
+            ''
+          ]);
+          let fileTitle = 'all_data';
+          exportCSVFile(headers, itemsFormatted, fileTitle);      
+        });
     }
 
     ngNotify.config({
