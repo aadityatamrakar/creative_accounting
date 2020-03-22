@@ -5,7 +5,7 @@ angular
   .controller('SlotsController', function ($scope, ngNotify, Client, Slot, Page) {
     $scope.pages = [];
     $scope.slots = [];
-    $scope.slot = {bookdate: new Date()};
+    $scope.slot = {bookdate: new Date(), comments: 0, gap: 0};
     $scope.query = {
       from_date: new Date(),
       to_date: new Date()
