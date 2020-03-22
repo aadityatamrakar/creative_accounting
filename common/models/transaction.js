@@ -30,6 +30,7 @@ module.exports = function (Transaction) {
               total_amount: transaction.total_amount,
               commission_amount: transaction.commission_amount,
               payable_amount: transaction.payable_amount,
+              expenses_amount: transaction.expenses_amount,
               credit: transaction.credit,
               paying_amount: transaction.paying_amount,
               client: clients[transaction.clientId],
@@ -38,6 +39,7 @@ module.exports = function (Transaction) {
             acc[transaction.clientId].total_amount += transaction.total_amount;
             acc[transaction.clientId].commission_amount += transaction.commission_amount;
             acc[transaction.clientId].payable_amount += transaction.payable_amount;
+            acc[transaction.clientId].expenses_amount += transaction.expenses_amount;
             acc[transaction.clientId].credit += transaction.credit;
             acc[transaction.clientId].paying_amount += transaction.paying_amount;
           }
