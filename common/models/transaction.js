@@ -19,7 +19,7 @@ module.exports = function (Transaction) {
       Transaction.find({
         where: {
           tdate: {
-            between: [moment(from_date).toDate(), moment(to_date).toDate()]
+            between: [moment(from_date).add(330, 'minute').toDate(), moment(to_date).add(330, 'minute').toDate()]
           }
         }
       }).then(function (transactions) {
@@ -79,9 +79,9 @@ module.exports = function (Transaction) {
     var Client = Transaction.app.models.client;
     Client.find({}, function (err, clients) {
       async.eachSeries(clients, function (client, cb2) {
-        let startD = moment().subtract(7, 'days').startOf('day').toDate();
-        let endD = moment().subtract(7, 'days').endOf('day').toDate();
-        let yesterday = moment().subtract(1, 'days').endOf('day').toDate();
+        let startD = moment().startOf('week').add(1, 'days').add(330, 'minute').toDate();
+        let endD = moment().endOf('week').add(1, 'days').add(330, 'minute').toDate();
+        // let yesterday = moment().subtract(1, 'days').endOf('day').toDate();
         client.transactions.find({
           where: {
             tdate: {
