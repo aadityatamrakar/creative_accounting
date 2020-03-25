@@ -11,6 +11,7 @@
         <td>Expenses</td>
         <td>Paid</td>
         <td>Credit</td>
+        <td>Status</td>
         <td>Description</td>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
         <td>{{transaction.expenses_amount}}</td>
         <td>{{transaction.paying_amount}}</td>
         <td>{{transaction.credit}}</td>
+        <td>{{transaction.state == true? 'Approved': 'Rejected'}}</td>
         <td>{{transaction.description}}</td>
       </tr>
     </tbody>
@@ -37,6 +39,7 @@
         <th>{{ total.expenses_amount }}</th>
         <th>{{ total.paying_amount }}</th>
         <th>{{ total.credit }}</th>
+        <th></th>
         <th></th>
       </tr>
     </tfoot>

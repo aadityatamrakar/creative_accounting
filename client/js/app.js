@@ -53,6 +53,11 @@ angular
           templateUrl: "views/app/transactions.html",
           controller: "TransactionController"
         })
+        .state("app.approve", {
+          url: "/approve",
+          templateUrl: "views/app/approve.html",
+          controller: "ApprovalController"
+        })
         .state("app.display", {
           url: "/display/:clientId",
           templateUrl: "views/app/display.html",

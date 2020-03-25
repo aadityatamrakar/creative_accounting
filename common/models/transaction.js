@@ -20,7 +20,8 @@ module.exports = function (Transaction) {
         where: {
           tdate: {
             between: [moment(from_date).add(330, 'minute').toDate(), moment(to_date).add(330, 'minute').toDate()]
-          }
+          },
+          state: true
         }
       }).then(function (transactions) {
 
@@ -87,7 +88,8 @@ module.exports = function (Transaction) {
             tdate: {
               gte: startD,
               lte: endD
-            }
+            }, 
+            state: true
           }
         }, function (err, transactions) {
           if (err) cb2();

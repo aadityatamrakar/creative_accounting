@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Pending Transactions</h2>
+
+  <table id="approveTbl" class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Total Income</th>
+        <th>Commission</th>
+        <th>Payable</th>
+        <th>Expenses</th>
+        <th>Paid</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="transaction in report">
+        <td ui-sref="app.display({clientId: transaction.client.id})">{{transaction.client.name}}</td>
+        <td>{{transaction.total_amount}}</td>
+        <td>{{transaction.commission_amount}}</td>
+        <td>{{transaction.payable_amount}}</td>
+        <td>{{transaction.expenses_amount}}</td>
+        <td>{{transaction.paying_amount}}</td>
+        <td>
+          <button class="btn btn-sm btn-success" ng-click="approve($index, true)">Approve</button>
+          <button class="btn btn-sm btn-danger" ng-click="approve($index, false)">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Total: </th>
+        <th>{{total.total_amount}}</th>
+        <th>{{total.commission_amount}}</th>
+        <th>{{total.payable_amount}}</th>
+        <th>{{total.expenses_amount}}</th>
+        <th>{{total.paid_amount}}</th>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

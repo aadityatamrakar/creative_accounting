@@ -116,7 +116,7 @@ angular
     // }
 
     $scope.downloadCsv = function () {
-      let headers = ['Name', 'Total Amount', 'Commission', 'Payable','Target', 'Paid', 'Balance'];
+      let headers = ['Name', 'Total Amount', 'Commission', 'Payable', 'Target', 'Paid', 'Balance'];
       let itemsFormatted = Object.values($scope.report).map(transaction => {
         return [
           transaction.client.name,
@@ -274,6 +274,49 @@ angular
         })
       })
     }
+    $scope.getData();
+  })
+  .controller('ApprovalController', function ($scope, ngNotify, Client, Transaction) {
+    $scope.report = {};
+    $scope.total = {};
+
+    $scope.getData = function () {
+      Transaction.find({
+        filter: {
+          where: {
+            state: {
+              exists: false
+            }
+          },
+          include: 'client'
+        }
+      }).$promise.then(function (result) {
+        $scope.report = result;
+
+        $scope.total = $scope.report.reduce(function (acc, item) {
+          acc.total_amount += item.total_amount;
+          acc.commission_amount += item.commission_amount;
+          acc.payable_amount += item.payable_amount;
+          acc.expenses_amount += item.expenses_amount;
+          acc.paid_amount += item.paying_amount;
+          return acc;
+        }, {
+          total_amount: 0,
+          commission_amount: 0,
+          payable_amount: 0,
+          expenses_amount: 0,
+          paid_amount: 0
+        })
+      })
+    }
+
+    $scope.approve = function (idx, flag) {
+      $scope.report[idx].state = flag;
+      $scope.report[idx].$save();
+      ngNotify.set(flag ? 'Approved!' : 'Rejected!');
+      $scope.report.splice(idx, 1);
+    }
+
     $scope.getData();
   })
   .controller('EntryController', function ($scope, ngNotify, Client, Transaction) {
