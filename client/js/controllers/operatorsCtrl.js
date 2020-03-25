@@ -9,10 +9,16 @@ angular
       $scope.pages = pages;
     });
 
+    $scope.sendMessageAll = function () {
+      let msgtxt = prompt('Message?', 'Message from creative fuel web.');
+      $scope.users.forEach((c, i) => {
+        $scope.message(i, 'Dear ' + c.name + `, ` + msgtxt);
+      });
+    }
 
-    $scope.message = function (idx) {
+    $scope.message = function (idx, msgtxt) {
       if (String($scope.users[idx].mobile).length == 10) {
-        let msgtxt = prompt('Message', 'Hello ');
+        msgtxt = typeof msgtxt != 'undefined' ? msgtxt : prompt('Message', 'Hello ');
         Transaction.sendmsg({
           mobile: $scope.users[idx].mobile,
           message: msgtxt
