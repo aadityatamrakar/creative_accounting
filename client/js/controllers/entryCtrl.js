@@ -117,6 +117,7 @@ angular
 
     $scope.downloadCsv = function () {
       let headers = ['Name', 'Total Amount', 'Commission', 'Payable', 'Target', 'Paid', 'Balance'];
+      let header_date = ['Date', moment($scope.query.from_date).format('DD/MM/Y HH:mm:s A'), moment($scope.query.to_date).format('DD/MM/Y HH:mm:s A'), '', '', '', ''];
       let itemsFormatted = Object.values($scope.report).map(transaction => {
         return [
           transaction.client.name,
@@ -129,6 +130,7 @@ angular
           (transaction.paying_amount - transaction.payable_amount)
         ]
       });
+      itemsFormatted.unshift(header_date);
       itemsFormatted.push([
         'Total:',
         $scope.total.total_amount,

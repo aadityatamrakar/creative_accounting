@@ -80,15 +80,16 @@ module.exports = function (Transaction) {
     var Client = Transaction.app.models.client;
     Client.find({}, function (err, clients) {
       async.eachSeries(clients, function (client, cb2) {
-        let startD = moment().startOf('week').add(1, 'days').add(330, 'minute').toDate();
-        let endD = moment().endOf('week').add(1, 'days').add(330, 'minute').toDate();
+        let startD = moment().startOf('week').add(1, 'days').toDate();
+        let endD = moment().endOf('week').add(1, 'days').toDate();
         // let yesterday = moment().subtract(1, 'days').endOf('day').toDate();
+        // console.log(startD, endD);
         client.transactions.find({
           where: {
             tdate: {
               gte: startD,
               lte: endD
-            }, 
+            },
             state: true
           }
         }, function (err, transactions) {
