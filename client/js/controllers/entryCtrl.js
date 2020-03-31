@@ -67,7 +67,7 @@ angular
           }
         }
       }).$promise.then(function (transactions) {
-        $scope.transactions = transactions;
+        $scope.transactions = transactions.reverse();
         $scope.total = $scope.transactions.reduce(function (acc, item) {
           acc.total_amount += item.total_amount;
           acc.commission_amount += item.commission_amount;
