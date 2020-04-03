@@ -97,10 +97,10 @@
       </div>
       <div class="card-body">
         <h4 ng-repeat-start="row in allReport" class="small font-weight-bold">{{$index+1}}. {{row.client.name}} <span
-            class="float-right">Achievement {{((row.total/row.client.target)* 100).toFixed(1)}} %</span></h4>
+            class="float-right">Achievement {{((row.payable/row.client.target)* 100).toFixed(1)}} %</span></h4>
         <div class="progress" ng-repeat-end>
           <div class="progress-bar bg-success" role="progressbar"
-            ng-style="{'width': {{(row.total/row.client.target)* 100}} + '%'}"></div>
+            ng-style="{'width': {{(row.payable/row.client.target)* 100}} + '%'}"></div>
         </div>
       </div>
     </div>
