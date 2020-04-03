@@ -20,7 +20,7 @@
           <th>Story</th>
           <th>Post</th>
           <th>Both</th>
-          <th>Action</th>
+          <th ng-if="clientRole == 'Admin'">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -36,7 +36,7 @@
           <td>{{ page.story }}</td>
           <td>{{ page.post }}</td>
           <td>{{ page.both }}</td>
-          <td>
+          <td ng-if="clientRole == 'Admin'">
             <button class="btn btn-md btn-warning" ng-click="edit($index)">Edit</button>
             <button class="btn btn-md btn-danger" ng-click="delete($index)">Del</button>
           </td>
@@ -53,7 +53,7 @@
           <td>{{total.story}}</td>
           <td>{{total.post}}</td>
           <td>{{total.both}}</td>
-          <td></td>
+          <td ng-if="clientRole == 'Admin'"></td>
         </tr>
       </tfoot>
     </table>
