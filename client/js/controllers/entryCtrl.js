@@ -212,15 +212,16 @@ angular
     }
 
     $scope.drawChart3 = function () {
-      let targetTotal = 0;
+      let targetTotal = 0, achieved = 0;
       let rowsData = Object.values($scope.report).map(c => {
         targetTotal += c.client.target;
+        achieved += c.payable_amount;
         // return [c.client.name, parseFloat(((c.payable_amount / c.client.target) * 100).toFixed(2))];
         return [c.client.name, c.payable_amount];
       });
       let data = google.visualization.arrayToDataTable([
         ['User', 'Contribution'],
-        ['Remaining', targetTotal],
+        ['Remaining', (targetTotal - achieved)],
         ...rowsData
       ]);
       console.log(rowsData);
